@@ -1,0 +1,92 @@
+.o_attendance_dashboard {
+
+        .bg-fs-blue {
+            background: linear-gradient(45deg,#4099ff,#73b4ff);
+        }
+
+        .bg-fs-green {
+            background: linear-gradient(45deg,#2ed8b6,#59e0c5);
+        }
+
+        .bg-fs-yellow {
+            background: linear-gradient(45deg,#FFB64D,#ffcb80);
+        }
+
+        .bg-fs-pink {
+            background: linear-gradient(45deg,#FF5370,#ff869a);
+        }
+     .overflow-hidden-title {
+                        white-space: nowrap; /* Prevents the text from wrapping to the next line */
+                        overflow: hidden;    /* Hides the overflow text */
+                        text-overflow: ellipsis; /* Adds "..." at the end of the text that overflows */
+                }
+                .list-group-item {
+                transition: background-color 0.2s;
+            }
+            .list-group-item:hover {
+                background-color: #f0f0f0;
+                cursor: pointer;
+            }
+
+        .fs-card {
+            border-radius: 5px;
+            -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+            box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+            border: none;
+            margin-bottom: 30px;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            height: 180px;
+        }
+        .fs-font-wight {
+            color: #fff;
+        }
+        .fs-card .card-block {
+            padding: 25px;
+        }
+
+        .fs-button {
+          background-color: #fff;
+          border: 1px solid #d5d9d9;
+          border-radius: 8px;
+          box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+          box-sizing: border-box;
+          color: #0f1111;
+          cursor: pointer;
+          display: inline-block;
+          font-family: "Amazon Ember",sans-serif;
+          font-size: 13px;
+          line-height: 29px;
+          padding: 0 10px 0 11px;
+          position: relative;
+          text-align: center;
+          text-decoration: none;
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+          vertical-align: middle;
+          width: 100px;
+        }
+        .task-button {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            min-width: 170px; /* Adjust this value as needed */
+            padding: 6px 12px;
+            transition: background-color 0.4s ease, color 0.4s ease; /* Add transition here */
+
+        }
+        .task-button:hover {
+            background-color: #4099ff;
+            color: white;
+        }
+        .fs-button {
+          background-color: #f7fafa;
+        }
+
+        .fs-button:focus {
+          border-color: #008296;
+          box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+          outline: 0;
+        }
+
+}

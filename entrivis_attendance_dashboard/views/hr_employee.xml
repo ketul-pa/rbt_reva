@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_employee_form_custom_schedule" model="ir.ui.view">
+        <field name="name">hr.employee.form.schedule</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Weekly Schedule" name='working_schedule'>
+                    <group>
+                        <field name="resource_calendar_id"/>
+                    </group>
+                    <field name="week_schedule_html" readonly="0"/>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='category_ids']" position="after">
+                <field name="birthdate"/>
+            </xpath>
+            <xpath expr="//field[@name='resource_calendar_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

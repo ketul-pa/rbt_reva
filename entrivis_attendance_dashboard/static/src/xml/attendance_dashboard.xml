@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="AttendanceDashboardMain">
+        <div class="o_attendance_dashboard">
+            <div class="container-fluid mt-3" style="overflow-y: auto; max-height: 90vh;">
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="fs-card bg-fs-blue">
+                            <div class="card-block fs-font-wight">
+                                <h5 class="fs-font-wight">
+                                   Active Employee
+                                </h5>
+                                <div class="d-flex justify-content-between">
+                                    <h1 class="fs-font-wight"><t t-esc="this.employee_count"/></h1>
+                                    <span class=""><a class="fs-button btn btn-light text-dark fw-bold rounded-pill" id="view_employee"><i class="fa fa-eye me-2"/>View</a></span>
+                                    <h1 class="fs-font-wight"><i class="fa fa-users"/></h1>
+                                </div>
+<!--                                <h5 class="fs-font-wight">-->
+<!--                                   Running Contract-->
+<!--                                </h5>-->
+<!--                                <div class="d-flex justify-content-between">-->
+<!--                                    <h1 class="fs-font-wight"><t t-esc="this.contract_count"/></h1>-->
+<!--                                    <span class=""><a class="fs-button btn btn-light text-dark fw-bold rounded-pill" id="view_contracts"><i class="fa fa-eye me-2"/>View</a></span>-->
+<!--                                    <h1 class="fs-font-wight"><i class="fa fa-file"/></h1>-->
+
+<!--                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+
+                        <div class="fs-card bg-fs-blue">
+                            <div class="card-block fs-font-wight">
+                                <h5 class="fs-font-wight">
+                                   All Task
+                                </h5>
+                                <div class="d-flex justify-content-between">
+                                    <h1 class="fs-font-wight"><t t-esc="this.task_count"/></h1>
+                                    <span class=""><a class="fs-button btn btn-light text-dark fw-bold rounded-pill" id="view_task"><i class="fa fa-eye me-2"/>View</a>
+                                </span></div>
+                                <h5 class="fs-font-wight">
+                                   To Schedule Task
+                                </h5>
+                                <div class="d-flex justify-content-between">
+                                    <h1 class="fs-font-wight"><t t-esc="this.schedule_task"/></h1>
+                                    <span class=""><a class="fs-button btn btn-light text-dark fw-bold rounded-pill" id="view_schedule_task"><i class="fa fa-eye me-2"/>View</a>
+                                </span></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <div class="fs-card bg-fs-blue">
+                            <h3 class="fs-font-wight" style="padding: 10px 10px;">
+                                Upcoming Employee Birthday
+                            </h3>
+                            <div class="fs-font-wight" style="padding: 5px 10px;">
+                                <div class="list-group" style="overflow-y: auto; max-height: 120px;">
+                                    <div class="bg-fs-blue">
+                                        <li class="list-group-item o_default_snippet_text bg-fs-blue"
+                                            style="pointer-events:none; position: sticky; top: 0; z-index: 1;">
+                                            <div class="row fs-font-wight"
+                                                 style="display: flex; justify-content: space-between; font-weight: bold;">
+                                                <div class="col">Name</div>
+                                                <div class="col text-center">Birth-Date</div>
+                                            </div>
+                                        </li>
+                                        <t t-foreach="upcoming_birthday_employee" t-as="emp_birthday" t-key="emp_birthday['id']">
+                                            <li class="list-group-item o_default_snippet_text bg-fs-blue">
+                                                <div class="row fs-font-wight"
+                                                     style="display: flex; justify-content: space-between;">
+                                                    <div class="col">
+                                                        <t t-esc="emp_birthday.name"/>
+                                                    </div>
+                                                    <div class="col text-center">
+                                                        <t t-esc="emp_birthday.birthdate"/>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<!--                                        <div>-->
+<!--                                            <t t-foreach="today_missing_attendance" t-as="attendance" t-key="attendance['id']">-->
+<!--                                                <li class="list-group-item o_default_snippet_text">-->
+<!--                                                    <div class="row"-->
+<!--                                                         style="display: flex; justify-content: space-between;">-->
+<!--                                                        <div class="col-2 text-center">-->
+<!--                                                            <img class="rounded-circle" style="height:30px;width:30px;"-->
+<!--                                                                 t-attf-src="/web/image/hr.employee/{{ attendance.emp_id }}/image_128"/>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="col">-->
+<!--                                                            <t t-esc="attendance.name"/>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="col text-center">-->
+<!--&lt;!&ndash;                                                            <t t-esc="attendance.shift"/>&ndash;&gt;-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                    <t t-set="count" t-value="count+1"/>-->
+<!--                                                </li>-->
+<!--                                            </t>-->
+<!--                                        </div>-->
+
+
+
+
+                    <div class="col-md-3">
+                        <div class="fs-card bg-fs-blue">
+<!--                                <div class="card-block fs-font-wight">-->
+<!--                                    <h3 class="fs-font-wight">-->
+<!--                                       Reporting-->
+<!--                                    </h3>-->
+<!--                                    <div class="d-flex justify-content-between mt-5">-->
+<!--                                        <h5 class="fs-font-wight">-->
+<!--                                            Attendance Analysis Report-->
+<!--                                        </h5>-->
+<!--                                        <span class=""><a class="fs-button btn btn-light text-dark fw-bold rounded-pill" id="view_attendance_analysis_report"><i class="fa fa-eye me-2"/>View</a></span>-->
+<!--                                    </div>-->
+<!--                                    <div class="d-flex justify-content-between mt-2">-->
+<!--                                        <h5 class="fs-font-wight">-->
+<!--                                            Time Off Analysis Report-->
+<!--                                        </h5>-->
+<!--                                        <span class=""><a class="fs-button btn btn-light text-dark fw-bold rounded-pill" id="view_time_off_analysis_report"><i class="fa fa-eye me-2"/>View</a></span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                <!-- Charts Row -->
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <h5 class="card-title d-flex justify-content-between">
+                                        Today's Missing Employee Attendance :
+                                        <span class="badge bg-info rounded-pill text-white"
+                                              t-if="this.missing_attendance_count">
+                                            Total: <t t-esc="this.missing_attendance_count"/>
+                                        </span>
+                                    </h5>
+                                </div>
+                                <div class="list-group" style="overflow-y: auto; max-height: 362px; min-height: 362px;">
+                                    <div>
+                                        <li class="list-group-item o_default_snippet_text"
+                                            style="pointer-events:none; position: sticky; top: 0; z-index: 1; background-color: white;">
+                                            <div class="row"
+                                                 style="display: flex; justify-content: space-between; font-weight: bold;">
+                                                <div class="col-2 text-center">#</div>
+                                                <div class="col">Name</div>
+                                                <div class="col text-center">Shift</div>
+                                            </div>
+                                        </li>
+                                        <div>
+                                            <t t-set="count" t-value="1"/>
+                                            <t t-foreach="today_missing_attendance" t-as="attendance" t-key="attendance['id']">
+                                                <li class="list-group-item o_default_snippet_text">
+                                                    <div class="row"
+                                                         style="display: flex; justify-content: space-between;">
+                                                        <div class="col-2 text-center">
+                                                            <img class="rounded-circle" style="height:30px;width:30px;"
+                                                                 t-attf-src="/web/image/hr.employee/{{ attendance.emp_id }}/image_128"/>
+                                                        </div>
+                                                        <div class="col">
+                                                            <t t-esc="attendance.name"/>
+                                                        </div>
+                                                        <div class="col text-center">
+<!--                                                            <t t-esc="attendance.shift"/>-->
+                                                        </div>
+                                                    </div>
+                                                    <t t-set="count" t-value="count+1"/>
+                                                </li>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title d-flex justify-content-between">
+                                    Today's Attendance :
+                                    <span class="badge bg-info rounded-pill text-white"
+                                          t-if="this.today_check_in_check_out_count">
+                                        Total: <t t-esc="this.today_check_in_check_out_count"/>
+                                    </span>
+                                </h5>
+                                <div class="list-group"
+                                     style="overflow-y: auto; max-height: 362px; min-height: 362px;">
+                                        <div style="width: auto; min-width: 1000px;">
+                                            <li class="list-group-item o_default_snippet_text"
+                                                style="pointer-events:none; position: sticky; top: 0; z-index: 1; background-color: white;">
+                                                <div class="row"
+                                                     style="display: flex; justify-content: space-between; font-weight: bold;">
+                                                    <div class="col-1 text-center" style="width: 80px;">#</div>
+                                                    <div class="col" style="flex: 1;">Name</div>
+                                                    <div class="col text-center"
+                                                         style="flex: 1;">Registration Number</div>
+                                                    <div class="col text-center" style="flex: 1;">Check-In</div>
+                                                    <div class="col text-center" style="flex: 1;">Check-Out</div>
+<!--                                                    <div class="col text-center" style="flex: 1;">Location</div>-->
+                                                </div>
+                                            </li>
+                                            <div>
+                                        <t t-set="count" t-value="1"/>
+                                                <t t-foreach="today_check_in_check_out" t-as="data" t-key="data['id']">
+                                                <li class="list-group-item o_default_snippet_text open_task_by_monthly"
+                                                    t-att-id="data.id">
+                                                    <div class="row"
+                                                         style="display: flex; justify-content: space-between;">
+                                                        <div class="col-1 text-center" style="width: 80px;">
+                                                                <t t-esc="count"/>
+                                                            </div>
+                                                        <div class="col overflow-hidden-title" style="flex: 1;">
+                                                                <t t-esc="data.employee_name"/>
+                                                            </div>
+                                                        <div class="col overflow-hidden-title text-center"
+                                                             style="flex: 1;">
+<!--                                                                <t t-esc="data.registration_number"/>-->
+                                                            </div>
+                                                        <div class="col text-center" style="flex: 1;">
+                                                                <t t-esc="data.check_in"/>
+                                                            </div>
+                                                        <div class="col text-center" style="flex: 1;">
+                                                                <t t-esc="data.check_out"/>
+                                                            </div>
+<!--                                                        <div class="col text-center" style="flex: 1;">-->
+<!--                                                                <t t-esc="data.check_out"/>-->
+<!--                                                            </div>-->
+                                                        </div>
+                                                    <t t-set="count" t-value="count+1"/>
+                                                    </li>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title d-flex justify-content-between">
+                                    Today's Time Off :
+                                    <span class="badge bg-info rounded-pill text-white"
+                                          t-if="this.today_time_off_count">
+                                        Total: <t t-esc="this.today_time_off_count"/>
+                                    </span>
+                                </h5>
+                                <div class="list-group" style="overflow-y: auto; max-height: 362px; min-height: 362px;">
+                                    <div style="width: auto; min-width: 1000px;">
+                                        <li class="list-group-item o_default_snippet_text"
+                                            style="pointer-events:none; position: sticky; top: 0; z-index: 1; background-color: white;">
+                                            <div class="row"
+                                                 style="display: flex; justify-content: space-between; font-weight: bold;">
+                                                <div class="col-1 text-center" style="width: 80px;">#</div>
+                                                <div class="col" style="flex: 1;">Employee Name</div>
+                                                <div class="col" style="flex: 1;">Time Off Type</div>
+                                                <div class="col" style="flex: 1;">Start Date</div>
+                                                <div class="col" style="flex: 1;">End Date</div>
+                                                <div class="col" style="flex: 1;">Duration</div>
+                                                <div class="col" style="flex: 1;">Description</div>
+                                                <div class="col" style="flex: 1;">Status</div>
+                                            </div>
+                                        </li>
+                                        <div>
+                                            <t t-set="count" t-value="1"/>
+                                            <t t-foreach="today_time_off" t-as="leave" t-key="leave['id']">
+                                                <li class="list-group-item o_default_snippet_text"
+                                                    t-att-id="leave.id">
+                                                    <div class="row"
+                                                         style="display: flex; justify-content: space-between;">
+                                                        <div class="col-1 text-center" style="width: 80px;">
+                                                            <t t-esc="count"/>
+                                                        </div>
+                                                        <div class="col overflow-hidden-title" style="flex: 1;">
+                                                            <t t-esc="leave.employee_name"/>
+                                                        </div>
+                                                        <div class="col overflow-hidden-title text-center"
+                                                             style="flex: 1;">
+                                                            <t t-esc="leave.time_off_type"/>
+                                                        </div>
+                                                        <div class="col text-center" style="flex: 1;">
+                                                            <t t-esc="leave.date_from"/>
+                                                        </div>
+                                                        <div class="col text-center" style="flex: 1;">
+                                                            <t t-esc="leave.date_to"/>
+                                                        </div>
+                                                        <div class="col text-center" style="flex: 1;">
+                                                            <t t-esc="leave.duration"/>
+                                                        </div>
+                                                        <div class="col text-center" style="flex: 1;">
+                                                            <t t-esc="leave.description"/>
+                                                        </div>
+                                                        <div class="col text-center" style="flex: 1;">
+                                                            <t t-esc="leave.status"/>
+                                                        </div>
+                                                    </div>
+                                                    <t t-set="count" t-value="count+1"/>
+                                                </li>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title d-flex justify-content-between">
+                                    Time Off for Upcoming 30 Days : ( <t t-esc="this.today_date"/> to <t t-esc="this.end_date"/> )
+                                    <span class="badge bg-info rounded-pill text-white"
+                                          t-if="this.upcoming_30_days_time_off_count">
+                                        Total: <t t-esc="this.upcoming_30_days_time_off_count"/>
+                                    </span>
+                                </h5>
+                                <div class="list-group" style="overflow-y: auto; max-height: 362px; min-height: 362px;">
+                                    <div style="width: auto; min-width: 1000px;">
+                                        <li class="list-group-item o_default_snippet_text"
+                                            style="pointer-events:none; position: sticky; top: 0; z-index: 1; background-color: white;">
+                                            <div class="row"
+                                                 style="display: flex; justify-content: space-between; font-weight: bold;">
+                                                <div class="col-1 text-center" style="width: 80px;">#</div>
+                                                <div class="col" style="flex: 1;">Employee Name</div>
+                                                <div class="col" style="flex: 1;">Time Off Type</div>
+                                                <div class="col" style="flex: 1;">Start Date</div>
+                                                <div class="col" style="flex: 1;">End Date</div>
+                                                <div class="col" style="flex: 1;">Duration</div>
+                                                <div class="col" style="flex: 1;">Description</div>
+                                                <div class="col" style="flex: 1;">Status</div>
+                                            </div>
+                                        </li>
+                                        <div>
+                                            <t t-set="count" t-value="1"/>
+                                            <t t-foreach="upcoming_30_days_time_off" t-as="upcoming_30_days__leave" t-key="upcoming_30_days__leave['id']">
+                                                <li class="list-group-item o_default_snippet_text" t-att-id="upcoming_30_days__leave.id">
+                                                    <div class="row"
+                                                         style="display: flex; justify-content: space-between;">
+                                                        <div class="col-1 text-center" style="width: 80px;">
+                                                            <t t-esc="count"/>
+                                                        </div>
+                                                        <div class="col overflow-hidden-title" style="flex: 1;">
+                                                            <t t-esc="upcoming_30_days__leave.employee_name"/>
+                                                        </div>
+                                                        <div class="col overflow-hidden-title text-center"
+                                                             style="flex: 1;">
+                                                            <t t-esc="upcoming_30_days__leave.time_off_type"/>
+                                                        </div>
+                                                        <div class="col text-center" style="flex: 1;">
+                                                            <t t-esc="upcoming_30_days__leave.date_from"/>
+                                                        </div>
+                                                        <div class="col text-center" style="flex: 1;">
+                                                            <t t-esc="upcoming_30_days__leave.date_to"/>
+                                                        </div>
+                                                        <div class="col text-center" style="flex: 1;">
+                                                            <t t-esc="upcoming_30_days__leave.duration"/>
+                                                        </div>
+                                                        <div class="col text-center" style="flex: 1;">
+                                                            <t t-esc="upcoming_30_days__leave.description"/>
+                                                        </div>
+                                                        <div class="col text-center" style="flex: 1;">
+                                                            <t t-esc="upcoming_30_days__leave.status"/>
+                                                        </div>
+                                                    </div>
+                                                    <t t-set="count" t-value="count+1"/>
+                                                </li>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

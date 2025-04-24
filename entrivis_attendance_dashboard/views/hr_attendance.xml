@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Create Client Action -->
+    <record id="action_attendance_dashboard" model="ir.actions.client">
+        <field name="name">Attendance Dashboard</field>
+        <field name="tag">attendance_dashboard</field>
+    </record>
+
+    <!-- Create Menu Item -->
+    <menuitem
+        id="menu_attendance_dashboard"
+        name="Dashboard"
+        parent="hr_attendance.menu_hr_attendance_root"
+        action="action_attendance_dashboard"
+        sequence="0"/>
+</odoo>
