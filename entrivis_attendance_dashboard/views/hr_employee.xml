@@ -5,7 +5,9 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//notebook" position="inside">
+            <xpath expr="//field[@name='resource_calendar_id']" position="replace">
+            </xpath>
+            <xpath expr="//notebook/page[1]" position="before">
                 <page string="Weekly Schedule" name='working_schedule'>
                     <group>
                         <field name="resource_calendar_id"/>
@@ -15,9 +17,6 @@
             </xpath>
             <xpath expr="//field[@name='category_ids']" position="after">
                 <field name="birthdate"/>
-            </xpath>
-            <xpath expr="//field[@name='resource_calendar_id']" position="attributes">
-                <attribute name="invisible">1</attribute>
             </xpath>
         </field>
     </record>

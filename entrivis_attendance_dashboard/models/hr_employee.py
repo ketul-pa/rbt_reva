@@ -27,23 +27,35 @@ class HrEmployee(models.Model):
                 day_attendance.setdefault(day_name, []).append(line)
 
             boxes = []
+            day_period = {
+                'morning': 'Morning',
+                'lunch': 'Break',
+                'afternoon': 'Afternoon',
+            }
             for day_name, lines in sorted(day_attendance.items(), key=lambda d: list(calendar.day_name).index(d[0])):
                 daily_blocks = ""
+                daily_blocks += f"""
+                    <div class="mb-1 row">
+                        <div class="col-4"><b>Day Period</b></div>
+                        <div class="col-4"><b>Start</b></div>
+                        <div class="col-4"><b>End</b></div>
+                    </div>"""
                 for line in lines:
                     start_time = f"{int(line.hour_from):02d}:{int((line.hour_from % 1) * 60):02d}"
                     end_time = f"{int(line.hour_to):02d}:{int((line.hour_to % 1) * 60):02d}"
                     daily_blocks += f"""
-                            <div style="margin-bottom: 5px;">
-                                Start: <span style="color: green;">{start_time}</span> -
-                                End: <span style="color: red;">{end_time}</span>
-                            </div>
-                        """
+                        <div class="mb-1 row">
+                            <div class="col-4"><b>{day_period.get(line.day_period)} : </b></div>
+                            <div class="col-4">{start_time}</div>
+                            <div class="col-4">{end_time}</div>
+                        </div>"""
                 boxes.append(f"""
-                        <div style="flex: 1 1 30%; border: 2px solid #007bff; padding: 10px; border-radius: 8px; min-width: 200px;">
-                            <b style="color: #000;">{day_name}</b><br/>
-                            {daily_blocks}
+                    <div style="flex: 1 1 30%; border: 0.5px solid #A9A9A9; padding: 7px; min-width: 200px;" class="shadow-sm rounded bg-100">
+                        <div class="p-2 rounded bg-success bg-opacity-25 mb-2"><b><center>{day_name}</center></b></div>
+                        <div class="bg-info bg-opacity-25 p-2">
+                        {daily_blocks}
                         </div>
-                    """)
+                    </div>""")
 
             employee.week_schedule_html = f"""
                     <div style="display: flex; flex-wrap: wrap; gap: 10px;">
